@@ -1,3 +1,11 @@
+/*
+ì»´í“¨í„° í”„ë¡œê·¸ë˜ë° ë° ì‹¤ìŠµ í‰ê°€ê³¼ì œ (ë°°ì  25ì )
+í•™ê³¼: ì»´í“¨í„°ì „ìì‹œìŠ¤í…œê³µí•™ê³¼
+í•™ë²ˆ: 202003393
+ì´ë¦„: ì£¼ì§„í¬
+ê³¼ì œ ì£¼ì œ: ë¯¸ë˜ì˜ ê±´ê°• ê´€ë¦¬ í”„ë¡œê·¸ë¨
+*/
+
 #include "HealthData.h"
 #include <iostream>
 #include <vector>
@@ -8,7 +16,7 @@ int main() {
     vector<HealthData> users;
     string filename = "health_data.txt";
 
-    // ±âÁ¸ µ¥ÀÌÅÍ ºÒ·¯¿À±â
+    // ê¸°ì¡´ ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
     ifstream inputFile(filename);
     if (inputFile.is_open()) {
         try {
@@ -17,27 +25,27 @@ int main() {
             }
         }
         catch (const exception& e) {
-            cerr << "µ¥ÀÌÅÍ¸¦ ºÒ·¯¿À´Â Áß ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù: " << e.what() << endl;
+            cerr << "ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì˜¤ëŠ” ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤: " << e.what() << endl;
         }
         inputFile.close();
     }
 
-    // »ç¿ëÀÚ ÀÔ·Â ¹Ş±â
-    cout << "»ç¿ëÀÚ Á¤º¸¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä (Á¾·áÇÏ·Á¸é ÀÌ¸§¿¡ 'Á¾·á' ÀÔ·Â):\n";
+    // ì‚¬ìš©ì ì…ë ¥ ë°›ê¸°
+    cout << "ì‚¬ìš©ì ì •ë³´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” (ì¢…ë£Œí•˜ë ¤ë©´ ì´ë¦„ì— 'ì¢…ë£Œ' ì…ë ¥):\n";
     while (true) {
         string name;
-        cout << "ÀÌ¸§: ";
+        cout << "ì´ë¦„: ";
         cin >> name;
-        if (name == "Á¾·á") break;
+        if (name == "ì¢…ë£Œ") break;
 
         int age;
-        cout << "³ªÀÌ: ";
+        cout << "ë‚˜ì´: ";
         cin >> age;
 
         double height, weight;
-        cout << "Å° (cm): ";
+        cout << "í‚¤ (cm): ";
         cin >> height;
-        cout << "¸ö¹«°Ô (kg): ";
+        cout << "ëª¸ë¬´ê²Œ (kg): ";
         cin >> weight;
 
         try {
@@ -45,18 +53,18 @@ int main() {
             users.push_back(user);
         }
         catch (const exception& e) {
-            cerr << "ÀÔ·Â ¿À·ù: " << e.what() << endl;
+            cerr << "ì…ë ¥ ì˜¤ë¥˜: " << e.what() << endl;
         }
     }
 
-    // ¸ğµç »ç¿ëÀÚ Á¤º¸ Ãâ·Â
-    cout << "\nÀÔ·ÂµÈ »ç¿ëÀÚ Á¤º¸:\n";
+    // ëª¨ë“  ì‚¬ìš©ì ì •ë³´ ì¶œë ¥
+    cout << "\nì…ë ¥ëœ ì‚¬ìš©ì ì •ë³´:\n";
     for (auto& user : users) {
         user.displayInfo();
         cout << "--------------------\n";
     }
 
-    // µ¥ÀÌÅÍ ÆÄÀÏ·Î ÀúÀå
+    // ë°ì´í„° íŒŒì¼ë¡œ ì €ì¥
     ofstream outputFile(filename);
     if (outputFile.is_open()) {
         for (auto& user : users) {
@@ -65,7 +73,7 @@ int main() {
         outputFile.close();
     }
     else {
-        cerr << "µ¥ÀÌÅÍ ÆÄÀÏÀ» ÀúÀåÇÒ ¼ö ¾ø½À´Ï´Ù." << endl;
+        cerr << "ë°ì´í„° íŒŒì¼ì„ ì €ì¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤." << endl;
     }
 
     return 0;
