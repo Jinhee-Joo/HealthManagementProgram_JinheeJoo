@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-// Ãß»ó Å¬·¡½º (ÀÎÅÍÆäÀÌ½º ¿ªÇÒ)
+// ì¶”ìƒ í´ë˜ìŠ¤ 
 class HealthBase {
 public:
     virtual void calculateBMI() = 0;
